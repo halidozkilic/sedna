@@ -1,0 +1,18 @@
+
+
+
+<mat-card><button mat-raised-button mat-icon-button color="primary" [routerLink]="['/']" routerLinkActive="router-link-active" ><mat-icon>arrow_back</mat-icon></button></mat-card>
+<mat-card>
+  <form (submit)="saveTask(postTask)" #postTask="ngForm">
+      <mat-form-field>
+          <input matInput placeholder="Title" type="text" name="title" [ngModel]="task?.title" required #title="ngModel">
+          <mat-error *ngIf="title.invalid">Boş bırakılamaz!</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Description" rows="6" name="description" [ngModel]="task?.description" required #description="ngModel"></textarea>
+          <mat-error *ngIf="description.invalid">Boş bırakılamaz!</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="warn">Save</button>
+  </form>
+</mat-card>
+

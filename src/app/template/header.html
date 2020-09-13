@@ -1,0 +1,26 @@
+<mat-toolbar color="warn">
+  <span><a routerLink="/">Sedna Business Tracking</a></span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/task/create" routerLinkActive="mat-primary">Create Task</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/login" routerLinkActive="mat-primary">Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/signup" routerLinkActive="mat-primary">Signup</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button (click)="onLogout()" routerLinkActive="mat-primary">Logout</a>
+    </li>
+  </ul>
+</mat-toolbar>
+
+
+<!-- <mat-action-row>
+    <button mat-raised-button mat-icon-button color="primary" *ngIf="userIsAuthenticated" [routerLink]="['/task/create']" routerLinkActive="router-link-active" ><mat-icon>add</mat-icon></button>
+    <button mat-button color="primary" *ngIf="!userIsAuthenticated" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>
+    <button mat-button color="primary" *ngIf="!userIsAuthenticated" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Signup</button>
+    <button mat-button color="primary" *ngIf="userIsAuthenticated" [routerLink]="[]"></button>
+</mat-action-row> -->
